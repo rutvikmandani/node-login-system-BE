@@ -3,6 +3,7 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const User = require("../models/userModel");
 
+// public Route
 const registerUser = asyncHandler(async (req, res) => {
   const { username, email, password } = req.body;
   if (!username || !email || !password) {
@@ -34,6 +35,7 @@ const registerUser = asyncHandler(async (req, res) => {
   res.json({ message: "Register the user" });
 });
 
+// public Route
 const loginUser = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
   if (!email || !password) {
@@ -61,6 +63,7 @@ const loginUser = asyncHandler(async (req, res) => {
   }
 });
 
+// private Route
 const currentUser = asyncHandler(async (req, res) => {
   res.json(req.user);
 });

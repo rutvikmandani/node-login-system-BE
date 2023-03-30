@@ -6,6 +6,7 @@ const getContacts = asyncHandler(async (req, res) => {
   res.status(200).json(contact);
 });
 
+// private Route
 const getParticularContact = asyncHandler(async (req, res) => {
   console.log('req', req)
   const contact = await Contact.findById(req.params.id);
@@ -22,6 +23,7 @@ const getParticularContact = asyncHandler(async (req, res) => {
   res.status(200).json(contact);
 });
 
+// private Route
 const createContact = asyncHandler(async (req, res) => {
   const { name, email, phone } = req.body;
   if (!name || !email || !phone) {
@@ -38,6 +40,7 @@ const createContact = asyncHandler(async (req, res) => {
   res.status(201).json(contact);
 });
 
+// private Route
 const updateContact = asyncHandler(async (req, res) => {
   const contact = await Contact.findById(req.params.id);
   if (!contact) {
@@ -59,6 +62,7 @@ const updateContact = asyncHandler(async (req, res) => {
   res.status(200).json(updatedContact);
 });
 
+// private Route
 const deleteContact = asyncHandler(async (req, res) => {
   const contact = await Contact.findById(req.params.id);
   if (!contact) {
